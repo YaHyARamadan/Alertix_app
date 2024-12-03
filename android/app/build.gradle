@@ -35,10 +35,24 @@ android {
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig = signingConfigs.debug
+            minifyEnabled false
+            shrinkResources false
         }
     }
 }
 
 flutter {
     source = "../.."
+}
+dependencies {
+    // مكتبة ML Kit العامة للتعرف على النصوص
+    implementation "com.google.mlkit:text-recognition:16.0.0-beta3"
+
+    // اللغات المحددة:
+    implementation "com.google.mlkit:text-recognition-chinese:16.0.0-beta3"
+    implementation "com.google.mlkit:text-recognition-japanese:16.0.0-beta3"
+    implementation "com.google.mlkit:text-recognition-korean:16.0.0-beta3"
+    implementation "com.google.mlkit:text-recognition-devanagari:16.0.0-beta3"
+
+    // أي مكتبات أخرى في مشروعك
 }

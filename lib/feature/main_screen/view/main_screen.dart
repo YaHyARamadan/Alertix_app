@@ -32,7 +32,8 @@ class MainScreen extends StatelessWidget {
           children: [
              FeaturesButton(
               imgPath: 'assets/img/bluetooth.png',
-              title: "الاتصال بالحذاء",
+              title: "Connect Bluetooth",
+              fontSize: 18,
               scale: 4.5,
               height: 2, onTap: () => Navigator.pushNamed(context, AppRoutes.bluetoothScreen)
 
@@ -40,21 +41,21 @@ class MainScreen extends StatelessWidget {
             FeaturesButton(
                 imgPath:
                     'assets/img/color-recognition_930x550-removebg-preview.png',
-                title: "التعرف على اللون",
+                title: "Color recognition",
                 scale: 0.1,
                 height: 15,
                 onTap: () =>
                     Navigator.pushNamed(context, AppRoutes.colorScreen)),
             FeaturesButton(
                 imgPath: 'assets/img/download-removebg-preview (2).png',
-                title: "قراءة النص",
+                title: "Read the text",
                 scale: 1,
                 height: 4,
                 onTap: () => Navigator.pushNamed(context, AppRoutes.rocScreen)
             ),
              FeaturesButton(
               imgPath: 'assets/img/gps.png',
-              title: "رجعني البيت",
+              title: "Map",
               scale: 4.4,
               height: 1,
                 onTap: () => Navigator.pushNamed(context, AppRoutes.myHomeLocate)
@@ -62,13 +63,14 @@ class MainScreen extends StatelessWidget {
             FeaturesButton(
                 imgPath:
                     'assets/img/istockphoto-1468537521-612x612-removebg-preview.png',
-                title: "الحقوووني",
+                title: "Emergency Call",
                 scale: 0.1,
                 height: 10,
                 onTap: () => Navigator.pushNamed(context, AppRoutes.smsScreen)),
             const FeaturesButton(
               imgPath: 'assets/img/save-money.png',
-              title: "تحقق العمله",
+              title: "Reading currency",
+              fontSize: 18,
               scale: 5,
               height: 5,
             ),
@@ -86,12 +88,13 @@ class FeaturesButton extends StatelessWidget {
     required this.title,
     required this.scale,
     this.height,
-    this.onTap,
+    this.onTap,  this.fontSize,
   });
 
   final String imgPath;
   final String title;
   final double scale;
+  final double? fontSize;
   final double? height;
   final GestureTapCallback? onTap;
 
@@ -123,7 +126,7 @@ class FeaturesButton extends StatelessWidget {
                 SizedBox(
                   height: height,
                 ),
-                CustomText(text: title, style: MyTextStyle.cairo20Size500Weight.copyWith())
+                CustomText(text: title, style: MyTextStyle.cairo20Size500Weight.copyWith(fontSize: fontSize))
               ],
             ),
           ),
